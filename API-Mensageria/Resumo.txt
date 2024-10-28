@@ -1,0 +1,34 @@
+1 - Entender o conceito de mensageria 
+
+             RESUMÃO = é um mecanismo de comunicação entre diferentes sistemas ou serviços de software
+
+             DEFINIÇÕES: 
+                        MENSAGEM - É a unidade de dados que é enviada de um sistema para o outro.
+
+                        FILA (Queue) - Um buffer temporário onde as mensagens são armazenadas até serem processadas.
+                        Normalmente as mensagens são processadas em ordem (First-In / First-Out).
+
+                        BROKER - Um sistema que gerencia as filas e a entrega das mensagens. O broker é responsável por garantir que as mensagegens
+                        sejam roteadas corretamente entre os serviços produtores de mensagens e os serviços	que receberão elas. (Basicamente 
+                        é o intermediador das mensagens)
+
+                        PRODUTOR - Serviço ou aplicação que envia a mensagem para o broker
+                        
+                        CONSUMIDOR - Serviço ou aplicação que vai receber e processra a mensagem da FILA
+
+                        *ROTEAMENTO* (O CORE DAS MENSAGERIAS) - É o processo pelo qual o broker decide para onde a mensagem vai ser enviada dentro do sistema 
+                        de mensageria. A mensagem pode ser enviada para uma fila espcífica ou para múltiplos destinos diferentes com 
+                        bas nas regras definidas.
+
+                        OBSERVAÇÕES IMPORTANTES: Uma mensagem não comporta funções ou operações em si, mas ela envia instruções ou comandos
+                        que devem ser interpretados pelo consumidor, que irá agir de acordo com o conteúdo da mensagem.
+
+
+
+No BullMQ o broker do sistema é o Redis, ele é o responsável por armazenar e organizar as filas atuando como uma espécie de intermediador.
+
+O produtor é a API em sí, que através de uma requisição POST, cria a mensagem chamada 'job'.
+
+O consumidor é o 'worker', que recebe a mensagem e executa a função correspondente ao tipo de mensagem.
+
+
